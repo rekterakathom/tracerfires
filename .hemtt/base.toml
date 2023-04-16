@@ -1,0 +1,13 @@
+name = "Tracer Fires"
+prefix = "TRFR"
+author = "ThomasAngel"
+template = "cba"
+mainprefix = "x"
+files = [
+    "LICENSE",
+    "mod.cpp",
+    "README.md"
+]
+folder_optionals = false
+sig_version = 3
+version = "1.0.0.0"
