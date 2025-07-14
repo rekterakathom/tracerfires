@@ -33,5 +33,5 @@ _projectile addEventHandler ["HitPart", {
 	if ((random 10) > ((_projectile getVariable ["TRFR_caliber", 1]) * CBA_SETTING(chanceMultiplier))) exitWith {}; // Lower caliber projectiles have smaller chance of igniting a fire
 
 	private _shooter = _projectile getVariable ["TRFR_shooter", objNull];
-	[_pos, 0, _shooter] call FUNC(createFire);
+	["TRFR_createFire", [_pos, 0, _shooter, random [10, 15, 20]]] call CBA_fnc_globalEvent;
 }];

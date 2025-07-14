@@ -15,7 +15,8 @@
 params [
 	"_pos",
 	"_size",
-	"_shooter"
+	"_shooter",
+	"_timeActive"
 ];
 
 private _fireType = switch (_size) do {
@@ -25,19 +26,14 @@ private _fireType = switch (_size) do {
 	default {"SmallDestructionFire"};
 };
 
-private _fireObject = "#particlesource" createVehicleLocal [0, 0, 0];
+private _fireObject = "#particlesource" createVehicleLocal (ASLToAGL _pos);
 _fireObject setParticleClass _fireType;
-_fireObject setPosASL _pos;
-
-private _timeActive = random [10, 15, 20];
 
 // Larger fires get a small light
-// Dedis and HC's don't need it
-if (_size > 0 && hasInterface) then {
+if (_size > 0) then {
 	_fireObject setParticleFire [0.1, 0.5, 0.2]; // Reduce the damage so people don't die instantly
 	_pos = [_pos # 0, _pos # 1, (_pos # 2) + 0.5];
-	private _light = "#lightpoint" createVehicleLocal [0, 0, 0];
-	_light setPosASL _pos;
+	private _light = "#lightpoint" createVehicleLocal (ASLToAGL _pos);
 
 	_light setLightColor [1, 0.65, 0.4];
 	_light setLightAmbient [0.15, 0.05, 0];
@@ -47,5 +43,5 @@ if (_size > 0 && hasInterface) then {
 	TRFR_activeFires pushBack [_light, 10, time + _timeActive, _shooter];
 };
 
-
+["TRFR_fireCreated", [_fireObject, _size, time + _timeActive, _shooter]] call CBA_fnc_localEvent;
 TRFR_activeFires pushBack [_fireObject, _size, time + _timeActive, _shooter];

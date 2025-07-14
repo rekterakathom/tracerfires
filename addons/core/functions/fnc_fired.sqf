@@ -24,8 +24,11 @@ params [
 	"_gunner"
 ];
 
-// Check if a tracer was fired
-if !([_unit, _muzzle, _magazine] call FUNC(isTracerRound)) exitWith {};
+// Just to make sure everybody is just handling their own stuff
+if !(local _projectile) exitWith {};
 
-// Start fire logic
-[_projectile, _ammo, _unit] call FUNC(startFire);
+// Check if a tracer was fired
+if (_projectile getShotInfo 4) then {
+	// Start fire logic
+	[_projectile, _ammo, _unit] call FUNC(startFire);
+};

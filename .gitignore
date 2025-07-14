@@ -3,6 +3,7 @@ releases/*
 *.biprivatekey
 keys/*
 .hemtt/local
+.hemttout
 ####
 
 hemtt.exe

@@ -6,12 +6,12 @@ ADDON = false;
 #include "PREP.hpp"
 
 // CBA Settings
-#include "initSettings.sqf"
+#include "initSettings.inc.sqf"
 
 // Cache for magazine data
-TRFR_magazineCache = createHashmap;
-TRFR_ammoCache = createHashmap;
-TRFR_flammableCache = createHashmap;
+TRFR_magazineCache = createHashMap;
+TRFR_ammoCache = createHashMap;
+TRFR_flammableCache = createHashMap;
 TRFR_activeFires = [];
 
 ADDON = true;

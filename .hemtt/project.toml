@@ -1,0 +1,16 @@
+name = "Tracer Fires"
+prefix = "TRFR"
+author = "ThomasAngel"
+template = "cba"
+mainprefix = "x"
+[files]
+include = [
+    "LICENSE",
+    "mod.cpp",
+    "README.md"
+]
+folder_optionals = false
+sig_version = 3
+
+[version]
+path = "addons/core/script_version.hpp"

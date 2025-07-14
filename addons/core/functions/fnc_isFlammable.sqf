@@ -17,7 +17,7 @@ params [
 TRFR_flammableCache getOrDefaultCall [
 	_surfaceType,
 	{
-		private _flammableStrs = ["wood", "foliage", "pine", "drygrass"];
+		private _flammableStrs = ["wood", "foliage", "pine", "grass"];
 		private _surfaceTypeStr = toLowerANSI (str _surfaceType);
 
 		private _flammable = false;
